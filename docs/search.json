@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "quarto_blogs",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nData Wrangling in Numpy\n\n\n\n\n\n\n\nTutorial\n\n\n\n\n\n\n\n\n\n\n\nJan 2, 2023\n\n\nBryce Blignaut\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nFeb 1, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJan 29, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nAdding Seasonality To Your Prophet Forecasting Model\n\n\n\n\n\n\n\nTutorial\n\n\n\n\n\n\n\n\n\n\n\nJan 2, 2023\n\n\nBryce Blignaut\n\n\n\n\n\n\n  \n\n\n\n\nData Wrangling in Numpy\n\n\n\n\n\n\n\nTutorial\n\n\n\n\n\n\n\n\n\n\n\nJan 2, 2023\n\n\nBryce Blignaut\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/data_wrangling_post/index.html",
@@ -40,5 +40,19 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/data_wrangling_post/final_blog_post.html",
+    "href": "posts/data_wrangling_post/final_blog_post.html",
+    "title": "Adding Seasonality To Your Prophet Forecasting Model",
+    "section": "",
+    "text": "Getting a forecast right is really hard. Seasonality affect sales to call center and has proven to be a major challenge for businesses.\nOne of the challenges in call center forecasting is accounting for seasonality. Seasonality refers to regular patterns in the data that repeat over a fixed time period, such as daily, weekly, or monthly. Examples of seasonal patterns in call center volume might include higher call volume during certain times of the day or week, or increased call volume during certain times of the year (e.g. around holidays).\nLuckily Facebook Prophet has seasonality components that find seasonality in your data and is relatively easy to use."
+  },
+  {
+    "objectID": "posts/data_wrangling_post/final_blog_post.html#the-code",
+    "href": "posts/data_wrangling_post/final_blog_post.html#the-code",
+    "title": "Adding Seasonality To Your Prophet Forecasting Model",
+    "section": "The Code",
+    "text": "The Code\nLet’s say you are working with call center volume data from Kaggle and want to incorporate a daily seasonality into your Prophet model. Here’s how you might do it:\nimport pandas as pd\nfrom fbprophet import Prophet\n\n# Load data\ndata = pd.read_csv('call_center_data.csv')\n\n# Create Prophet model\nmodel = Prophet()\n\n# Add daily seasonality\nmodel.add_seasonality(name='daily', period=1, fourier_order=10)\n\n# Fit model to data\nmodel.fit(data)\n\n# Make predictions\nfuture_dates = model.make_future_dataframe(periods=30)\nforecast = model.predict(future_dates)\n\n# Plot forecast\nmodel.plot(forecast)\nAdding seasonality to your Prophet model can help improve the accuracy of your volume forecasts, particularly if there are regular patterns in the data that repeat over time. By using the ‘add_seasonality’ function in Prophet, you can make forecasting much easier for your data science teams."
   }
 ]
